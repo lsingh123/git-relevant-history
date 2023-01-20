@@ -19,25 +19,13 @@ Usage documentation for the tool is available via cmdline:
 git-relevant-history --help:
 
 ```
-Extract enough git history to facilitate git blame and have each line correctly annotated
-
-Wipe all history that has no connection to the current state of the repository.
-
-The resulting repository is a drop-in replacement for the old directory and has all history needed for typical git history use.
-
+Extract git paths beyond renames and moves.
 Usage:
-  git-relevant-history [options] --source=<source_repo> --subdir=<subdir> --target=<target_repo>
-
-Where git repo at <source_repo> would be processed into <target_repo>, in a way that only files starting with
-<subdir> would be preserved.
-
-
+  git-relevant-history [options] --subdir=<subdir> --outfile=<filename>
+Files starting with <subdir>, relative to the current working directory, will have their relevant historical paths written to the file <outfile>.
+This file can be given as input to git-filer-repo with argument --paths-from-file.
 Options:
-  --only-specs         Only print git filter-repo specs file as expected by git filter-repo --paths-from-file
   -h --help            show this help message and exit
-  -f --force           remove <target_repo> if exists
   -v --verbose         print status messages
-  ```
-  Calling when git-relevant-history repo is cloned locally:
-  
-  ./gitrelevanthistory/main.py --source=<big-repo> --subdir=<subdir-of-big-repo> --target=<path-of-extracted-small-repo>
+
+```
