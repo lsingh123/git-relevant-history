@@ -1,6 +1,6 @@
 # git-relevant-history
 
-Extract software component from git repo into a new repo, taking complete relevant history with it.
+Extract software component from git repo into a new repo, taking complete relevant history with it (modified to work with palantir's infra)
 
 ## Background
 
